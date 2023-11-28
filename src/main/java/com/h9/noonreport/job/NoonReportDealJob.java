@@ -1,7 +1,7 @@
 package com.h9.noonreport.job;
 
 import com.h9.noonreport.service.INoonReportBaseService;
-import com.zdiai.noonreport.service.*;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 

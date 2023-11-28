@@ -11,8 +11,6 @@ import com.h9.noonreport.constant.RedisConstants;
 import com.h9.noonreport.dto.NoonReportNowDateSomsDto;
 import com.h9.noonreport.entity.*;
 import com.h9.noonreport.service.*;
-import com.zdiai.noonreport.entity.*;
-import com.zdiai.noonreport.service.*;
 import com.h9.noonreport.utils.DateUtils;
 import com.h9.noonreport.utils.GroovyUtil;
 import lombok.extern.slf4j.Slf4j;

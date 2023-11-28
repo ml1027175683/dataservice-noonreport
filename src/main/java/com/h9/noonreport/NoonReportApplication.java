@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @date 2023/09/26
  */
 @MapperScan("com.zdiai.**.mapper")
-@ComponentScan(basePackages = "com.zdiai.*")
+@ComponentScan(basePackages = "com.h9.*")
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync

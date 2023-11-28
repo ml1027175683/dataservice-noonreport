@@ -2,13 +2,13 @@ package com.h9.noonreport.controller;
 
 
 import com.h9.noonreport.service.INoonReportService;
-import com.zdiai.general.common.entity.Result;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Objects;
 
 /**
  * <p>
@@ -24,7 +24,7 @@ public class NoonReportController {
     @Resource
     INoonReportService noonReportService;
     @GetMapping("/getNoonReportById")
-    public Result getNoonReportById(Long id) {
-       return Result.ok(noonReportService.getNoonReportById(id)) ;
+    public Object getNoonReportById(Long id) {
+       return noonReportService.getNoonReportById(id) ;
     }
 }
