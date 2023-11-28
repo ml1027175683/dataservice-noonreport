@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.h9.noonreport.mapper.RuleConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.h9.noonreport.entity.RuleConfig">
+        <result column="id" property="id" />
+        <result column="func_name" property="funcName" />
+        <result column="func_desc" property="funcDesc" />
+        <result column="formula_body" property="formulaBody" />
+        <result column="groovy_body" property="groovyBody" />
+        <result column="python_body" property="pythonBody" />
+        <result column="lua_body" property="luaBody" />
+        <result column="deal_type" property="dealType" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        func_name, func_desc, formula_body, groovy_body, python_body, lua_body, deal_type
+    </sql>
+
+</mapper>

@@ -1,0 +1,33 @@
+stages:
+  - package
+  - build
+  - deploy-dev-new
+
+build:
+  stage: package
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "dev-new" && $CI_COMMIT_TAG != ""
+      changes:
+        - src/**/*   # Any changes in the src directory
+        - Dockerfile  # Changes in Dockerfile
+        - pom.xml
+        - .gitlab-ci.yml
+  tags: 
+    - public-shenzhen 
+  image: harbor.zdiai.cn/library/maven:3-openjdk-8-proxy101-1
+  variables:
+    MAVEN_OPTS: "-Dmaven.repo.local=./repository"
+    MAVEN_CLI_OPTS: "-s /opt/settings.xml --batch-mode"
+  script:
+    - ls
+    - mvn $MAVEN_CLI_OPTS package -Dmaven.test.skip=true -B
+    - ls target
+    - test -z "$(ls target/*.jar)" && echo "not found jar file, exit." && exit -1
+    - cd target; JAR_FILE=$(ls *.jar)
+    - ARTIFACTS_DIR="/opt/artifacts/$CI_PROJECT_NAME/$CI_COMMIT_REF_NAME"
+    - rm -f $ARTIFACTS_DIR/*
+    - test ! -d $ARTIFACTS_DIR && mkdir -p $ARTIFACTS_DIR
+    - mv $JAR_FILE $ARTIFACTS_DIR/
+    - ls -alth $ARTIFACTS_DIR/
+
+、

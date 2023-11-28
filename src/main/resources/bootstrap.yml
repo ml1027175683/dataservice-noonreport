@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: zdiai-dataservice-noonreport
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_HOST:172.16.1.11}:${NACOS_PORT:8848}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+
+  profiles:
+    active: ${config.profile:dev-new}
+
+logging:
+  config: classpath:logback-spring.xml

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.h9.noonreport.mapper.NoonReportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.h9.noonreport.entity.NoonReport">
+        <result column="id" property="id" />
+        <result column="ship_code" property="shipCode" />
+        <result column="report_msg" property="reportMsg" />
+        <result column="ctime" property="ctime" />
+        <result column="start_timestamp" property="startTimestamp" />
+        <result column="end_timestamp" property="endTimestamp" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        ship_code, report_msg, ctime, start_timestamp, end_timestamp
+    </sql>
+
+</mapper>
